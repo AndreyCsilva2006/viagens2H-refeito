@@ -18,13 +18,21 @@ public class Main {
         outroTurista.setNome(nome);
         JOptionPane.showMessageDialog(null, "O nome digitado foi "+
                     outroTurista.getNome());
+
         // Criar a captura do CPF deste objeto
         String cpf = JOptionPane.showInputDialog("Digite seu cpf: ");
-        if(Validacao.cpf(cpf))
-            outroTurista.setCpf(cpf);
-        else
+        outroTurista.setCpf(cpf);
+
+        if(Validacao.validaCPF(cpf)) {
+            System.out.println("CPF VALIDADO!!!");
+            JOptionPane.showMessageDialog(null, outroTurista.getCpf()
+                    + " validado!");
+        }
+
+        else{
             System.out.println("ERRO CPF NÃO VALIDADO!!!");
-        JOptionPane.showMessageDialog(null, outroTurista.getCpf()
-                + " validado!");
+            JOptionPane.showMessageDialog(null, outroTurista.getCpf()
+                    + " não validado!");
+        }
     }
 }
